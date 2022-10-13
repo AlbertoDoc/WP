@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/EventsFragment">
+
+    <fragment
+        android:id="@+id/EventsFragment"
+        android:name="com.example.wps.events.view.EventsFragment"
+        android:label="@string/events_fragment_label"
+        tools:layout="@layout/fragment_events">
+
+        <action
+            android:id="@+id/action_EventsFragment_to_LocationFragment"
+            app:destination="@id/LocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LocationFragment"
+        android:name="com.example.wps.location.view.LocationFragment"
+        android:label="@string/location_fragment_label"
+        tools:layout="@layout/fragment_location">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/EventsFragment" />
+    </fragment>
+</navigation>
