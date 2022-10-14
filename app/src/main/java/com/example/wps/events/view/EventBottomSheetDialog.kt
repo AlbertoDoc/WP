@@ -1,9 +1,12 @@
 package com.example.wps.events.view
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.Observer
 import com.example.wps.databinding.AddPersonLayoutBinding
 import com.example.wps.databinding.EventBottomSheetBinding
@@ -56,7 +59,7 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         }
 
         binding.layoutLocation.setOnClickListener {
-
+            showLocation()
         }
 
         binding.layoutShare.setOnClickListener {
@@ -98,12 +101,30 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         }
     }
 
-    fun showParticipants() {
+    private fun showParticipants() {
         val participantsBinding = ParticipantsLayoutBinding.inflate(LayoutInflater.from(context))
         setContentView(participantsBinding.root)
 
         participantsBinding.backArrowImageView.setOnClickListener {
             setContentView(binding.root)
+        }
+    }
+
+    private fun showLocation() {
+        val gmmIntentUri = Uri.parse("geo:0,0?q="
+                + event.latitude
+                + ","
+                + event.longitude
+                + "("
+                + event.title
+                + ")"
+        )
+
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+
+        mapIntent.resolveActivity(context.packageManager)?.let {
+            startActivity(context, mapIntent, null)
         }
     }
 }
