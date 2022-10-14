@@ -1,21 +1,26 @@
 package com.example.wps.events.view
 
-import android.graphics.drawable.Drawable
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestListener
 import com.example.wps.R
+import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.EventLayoutBinding
 import com.example.wps.repositories.room.entities.Event
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
     private var events = ArrayList<Event>()
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = EventLayoutBinding.inflate(LayoutInflater.from(parent.context))
+
+        context = parent.context
 
         return ViewHolder(binding)
     }
@@ -30,6 +35,9 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
             .error(R.drawable.ic_round_image_108)
             .placeholder(R.drawable.ic_round_image_108)
             .into(holder.image)
+        holder.price.text = "R$ " + event.price
+
+        holder.eventLayout.setOnClickListener { showBottomSheetDialog(event) }
     }
 
     override fun getItemCount(): Int {
@@ -41,10 +49,20 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    private fun showBottomSheetDialog(event: Event) {
+        val dialog = BottomSheetDialog(context, R.style.BottomSheetDialog)
+        val sheetBinding = EventBottomSheetBinding.inflate(LayoutInflater.from(context))
+
+        dialog.setContentView(sheetBinding.root)
+        dialog.show()
+    }
+
     class ViewHolder(itemView: EventLayoutBinding) : RecyclerView.ViewHolder(itemView.root) {
         val title = itemView.eventTitle
         val description = itemView.eventDescription
         val image = itemView.eventImage
         val distance = itemView.eventDistance
+        val price = itemView.eventPrice
+        val eventLayout = itemView.eventLayout
     }
 }
