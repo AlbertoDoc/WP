@@ -50,10 +50,7 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
     }
 
     private fun showBottomSheetDialog(event: Event) {
-        val dialog = BottomSheetDialog(context, R.style.BottomSheetDialog)
-        val sheetBinding = EventBottomSheetBinding.inflate(LayoutInflater.from(context))
-
-        dialog.setContentView(sheetBinding.root)
+        val dialog = EventBottomSheetDialog(context, R.style.BottomSheetDialog, event)
         dialog.show()
     }
 

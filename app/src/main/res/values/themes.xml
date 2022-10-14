@@ -30,4 +30,12 @@
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="TextLabel" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/primary_color</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/primary_color</item>
+        <item name="colorControlNormal">@color/primary_color</item>
+        <item name="colorControlActivated">@color/primary_color</item>
+    </style>
 </resources>

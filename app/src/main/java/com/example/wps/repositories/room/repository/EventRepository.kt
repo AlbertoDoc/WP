@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.example.wps.repositories.retrofit.services.EventService
 import com.example.wps.repositories.room.daos.EventDAO
 import com.example.wps.repositories.room.entities.Event
+import com.example.wps.util.ValidationUtil
 import com.google.gson.JsonArray
 import retrofit2.Call
 import retrofit2.Callback
