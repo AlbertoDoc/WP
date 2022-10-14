@@ -1,10 +1,7 @@
 package com.example.wps.repositories.room.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.wps.repositories.room.entities.Event
 
 @Dao
@@ -20,4 +17,10 @@ interface EventDAO {
 
     @Delete
     fun delete(Event: Event)
+
+    @Update
+    fun update(Event: Event)
+
+    @Query("SELECT * FROM Event WHERE uid == :uid")
+    fun getById(uid: String): Event?
 }

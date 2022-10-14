@@ -30,10 +30,14 @@ class EventsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         context?.let { WPSDatabase().getDatabase(it) }?.let { viewModel.loadDatabase(it) }
+        viewModel.loadRepository()
 
-        viewModel.getEvents().observe(viewLifecycleOwner) { item ->
+        val adapter = EventsAdapter()
+        binding.eventRecyclerView.adapter = adapter
+
+        viewModel.getEvents().observe(viewLifecycleOwner) { events ->
             run {
-
+                adapter.setEvents(ArrayList(events))
             }
         }
     }
