@@ -13,6 +13,7 @@
         android:src="@drawable/ic_round_arrow_back_24"
         android:contentDescription="TODO"
         android:padding="15dp"
+        android:background="?android:attr/selectableItemBackground"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

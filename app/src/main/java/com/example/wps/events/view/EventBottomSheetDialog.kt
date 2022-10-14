@@ -7,17 +7,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.Observer
 import com.example.wps.databinding.AddPersonLayoutBinding
 import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.ParticipantsLayoutBinding
 import com.example.wps.events.viewModel.EventBottomSheetViewModel
 import com.example.wps.repositories.retrofit.RetrofitClient
-import com.example.wps.repositories.room.database.Database
 import com.example.wps.repositories.room.database.WPSDatabase
 import com.example.wps.repositories.room.entities.Event
-import com.example.wps.repositories.room.repository.EventRepository
-import com.example.wps.repositories.room.repository.PeopleRepository
 import com.example.wps.util.ValidationUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
