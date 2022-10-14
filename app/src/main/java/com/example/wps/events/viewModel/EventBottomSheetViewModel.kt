@@ -21,7 +21,7 @@ class EventBottomSheetViewModel : ViewModel() {
 
     fun loadRepositories(eventDAO: EventDAO, retrofit: Retrofit) {
         eventRepo = EventRepository(eventDAO, retrofit)
-        peopleRepo = PeopleRepository(retrofit)
+        peopleRepo = PeopleRepository(eventDAO, retrofit)
     }
 
     fun getPostNewParticipantResult() : LiveData<Boolean> {

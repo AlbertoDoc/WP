@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.wps.databinding.AddPersonLayoutBinding
 import com.example.wps.databinding.EventBottomSheetBinding
+import com.example.wps.databinding.ParticipantsLayoutBinding
 import com.example.wps.events.viewModel.EventBottomSheetViewModel
 import com.example.wps.repositories.retrofit.RetrofitClient
 import com.example.wps.repositories.room.database.Database
@@ -51,7 +52,7 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         }
 
         binding.layoutParticipants.setOnClickListener {
-
+            showParticipants()
         }
 
         binding.layoutLocation.setOnClickListener {
@@ -80,9 +81,7 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
             val name = addPersonBinding.nameEditText.text.toString()
             val email = addPersonBinding.emailEditText.text.toString()
 
-            val result = viewModel.validateFields(name, email)
-
-            when (result) {
+            when (viewModel.validateFields(name, email)) {
                 ValidationUtil.FIELDS_IS_VALID -> {
                     viewModel.addParticipant(name, email, event.uid)
                 }
@@ -96,6 +95,15 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
                     addPersonBinding.emailInputLayout.error = "Email inválido."
                 }
             }
+        }
+    }
+
+    fun showParticipants() {
+        val participantsBinding = ParticipantsLayoutBinding.inflate(LayoutInflater.from(context))
+        setContentView(participantsBinding.root)
+
+        participantsBinding.backArrowImageView.setOnClickListener {
+            setContentView(binding.root)
         }
     }
 }
