@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.example.wps.databinding.FragmentEventsBinding
 import com.example.wps.events.viewModel.EventsViewModel
 import com.example.wps.repositories.room.database.WPSDatabase
@@ -34,6 +36,7 @@ class EventsFragment : Fragment() {
 
         val adapter = EventsAdapter()
         binding.eventRecyclerView.adapter = adapter
+        binding.eventRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
 
         viewModel.getEvents().observe(viewLifecycleOwner) { events ->
             run {

@@ -1,8 +1,12 @@
 package com.example.wps.events.view
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestListener
+import com.example.wps.R
 import com.example.wps.databinding.EventLayoutBinding
 import com.example.wps.repositories.room.entities.Event
 
@@ -21,6 +25,11 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
         holder.title.text = event.title
         holder.description.text = event.description
+        Glide.with(holder.itemView.context)
+            .load(event.image)
+            .error(R.drawable.ic_round_image_108)
+            .placeholder(R.drawable.ic_round_image_108)
+            .into(holder.image)
     }
 
     override fun getItemCount(): Int {
