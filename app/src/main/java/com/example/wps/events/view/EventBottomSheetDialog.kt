@@ -10,12 +10,15 @@ import androidx.core.content.ContextCompat.startActivity
 import com.example.wps.databinding.AddPersonLayoutBinding
 import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.ParticipantsLayoutBinding
+import com.example.wps.databinding.ShareLayoutBinding
 import com.example.wps.events.viewModel.EventBottomSheetViewModel
 import com.example.wps.repositories.retrofit.RetrofitClient
 import com.example.wps.repositories.room.database.WPSDatabase
 import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.ValidationUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EventBottomSheetDialog(context: Context, theme: Int, private val event: Event)
     : BottomSheetDialog(context, theme) {
@@ -59,7 +62,7 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         }
 
         binding.layoutShare.setOnClickListener {
-
+            showShare()
         }
 
         setContentView(binding.root)
@@ -121,6 +124,54 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
 
         mapIntent.resolveActivity(context.packageManager)?.let {
             startActivity(context, mapIntent, null)
+        }
+    }
+
+    private fun showShare() {
+        val shareBinding = ShareLayoutBinding.inflate(LayoutInflater.from(context))
+        setContentView(shareBinding.root)
+
+        shareBinding.backArrowImageView.setOnClickListener {
+            setContentView(binding.root)
+        }
+
+        shareBinding.layoutWpp.setOnClickListener {
+            callInviteApp("com.whatsapp")
+        }
+
+        shareBinding.layoutMessenger.setOnClickListener {
+            callInviteApp("com.facebook.orca")
+        }
+
+        shareBinding.layoutTelegram.setOnClickListener {
+            callInviteApp("org.telegram.messenger")
+        }
+
+        shareBinding.layoutOthers.setOnClickListener {
+            callInviteApp(null);
+        }
+    }
+
+    private fun callInviteApp(inviteApp: String?) {
+        val eventDate = Date(event.date)
+
+        val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
+        val dateOutput: String = formatter.format(eventDate)
+
+        val eventShareText = "Venha participar do evento " +
+                event.title + "\n" +
+                "Entrada: R$" + String.format("%.2f", event.price) + "\n" +
+                "Data: " + dateOutput
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, eventShareText)
+        intent.setPackage(inviteApp)
+
+        if (intent.resolveActivity(context.packageManager) != null) {
+            startActivity(context, intent, null)
+        } else {
+            Toast.makeText(context, "App não instalado.", Toast.LENGTH_SHORT).show()
         }
     }
 }
