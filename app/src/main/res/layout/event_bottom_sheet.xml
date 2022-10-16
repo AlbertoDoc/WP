@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_person_add_36"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/add_participant"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             android:id="@+id/add_person_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicionar participante"
+            android:text="@string/add_participant"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_people_36"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/see_participants"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +78,7 @@
             android:id="@+id/participants_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ver participantes"
+            android:text="@string/see_participants"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_location_on_36"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/location"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -125,7 +125,7 @@
             android:id="@+id/location_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Localização"
+            android:text="@string/location"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_share_36"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/share"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -172,7 +172,7 @@
             android:id="@+id/share_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Compartilhar"
+            android:text="@string/share"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 

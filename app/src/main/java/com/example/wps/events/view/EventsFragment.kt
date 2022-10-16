@@ -1,6 +1,5 @@
 package com.example.wps.events.view
 
-import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import com.example.wps.databinding.FragmentEventsBinding
 import com.example.wps.events.viewModel.EventsViewModel
 import com.example.wps.repositories.room.database.WPSDatabase
-import com.google.android.gms.location.LocationCallback
 
 class EventsFragment : Fragment() {
 
@@ -26,7 +23,7 @@ class EventsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentEventsBinding.inflate(inflater, container, false)
         return binding.root

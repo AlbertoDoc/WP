@@ -11,18 +11,5 @@
         android:label="@string/events_fragment_label"
         tools:layout="@layout/fragment_events">
 
-        <action
-            android:id="@+id/action_EventsFragment_to_LocationFragment"
-            app:destination="@id/LocationFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/LocationFragment"
-        android:name="com.example.wps.location.view.LocationFragment"
-        android:label="@string/location_fragment_label"
-        tools:layout="@layout/fragment_location">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/EventsFragment" />
     </fragment>
 </navigation>

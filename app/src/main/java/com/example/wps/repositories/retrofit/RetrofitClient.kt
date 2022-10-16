@@ -7,7 +7,6 @@ import java.util.concurrent.Executors
 class RetrofitClient {
 
     private var retrofit: Retrofit? = null
-    private val BASE_URL: String = "https://5f5a8f24d44d640016169133.mockapi.io/api/"
 
     fun getRetrofitInstance(): Retrofit {
         if (retrofit == null) {
@@ -19,5 +18,9 @@ class RetrofitClient {
         }
 
         return retrofit as Retrofit
+    }
+
+    companion object {
+        const val BASE_URL: String = "https://5f5a8f24d44d640016169133.mockapi.io/api/"
     }
 }

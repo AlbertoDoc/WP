@@ -1,21 +1,17 @@
 package com.example.wps.events.view
 
-import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.ActionBar
 import android.content.Context
-import android.transition.Scene
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wps.R
-import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.EventLayoutBinding
 import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.DateUtil
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlin.math.ceil
 
 class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {

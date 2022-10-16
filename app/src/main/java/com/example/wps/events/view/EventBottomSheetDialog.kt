@@ -18,8 +18,6 @@ import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.DateUtil
 import com.example.wps.util.ValidationUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import java.text.SimpleDateFormat
-import java.util.*
 
 class EventBottomSheetDialog(context: Context, theme: Int, private val event: Event)
     : BottomSheetDialog(context, theme) {
@@ -149,7 +147,7 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         }
 
         shareBinding.layoutOthers.setOnClickListener {
-            callInviteApp(null);
+            callInviteApp(null)
         }
     }
 

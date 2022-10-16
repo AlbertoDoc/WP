@@ -33,7 +33,7 @@
                 android:scaleType="center"
                 android:src="@drawable/ic_round_image_108"
                 app:shapeAppearanceOverlay="@style/roundImageView"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/event_image"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

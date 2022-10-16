@@ -29,7 +29,7 @@ class PeopleRepository(private val eventDAO: EventDAO, private val retrofit: Ret
         return false
     }
 
-    fun insertNewParticipant(name: String, email: String, eventUid: String) {
+    private fun insertNewParticipant(name: String, email: String, eventUid: String) {
         val event = eventDAO.getById(eventUid)
 
         event?.peoples?.add(name)

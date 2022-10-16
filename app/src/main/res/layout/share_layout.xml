@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_round_arrow_back_24"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/back_arrow"
         android:padding="15dp"
         android:background="?android:attr/selectableItemBackground"
 
@@ -47,7 +47,7 @@
             android:src="@drawable/ic_whatsapp_black_36dp"
             android:tint="@color/primary_color"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/wpp_image"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
             android:id="@+id/wpp_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WhatsApp"
+            android:text="@string/wpp"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -95,7 +95,7 @@
             android:src="@drawable/ic_facebook_messenger_black_36dp"
             android:tint="@color/primary_color"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/messenger_image"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -105,7 +105,7 @@
             android:id="@+id/messenger_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Messenger"
+            android:text="@string/messenger"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -143,7 +143,7 @@
             android:src="@drawable/ic_telegram_black_36dp"
             android:tint="@color/primary_color"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/telegram_image"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -153,7 +153,7 @@
             android:id="@+id/telegram_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telegram"
+            android:text="@string/telegram"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_share_green_36"
             android:layout_margin="15dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/others_image"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -200,7 +200,7 @@
             android:id="@+id/others_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Outros"
+            android:text="@string/others"
             android:textSize="15sp"
             android:layout_marginLeft="15dp"
 
