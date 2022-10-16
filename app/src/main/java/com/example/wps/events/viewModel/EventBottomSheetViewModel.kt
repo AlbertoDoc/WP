@@ -17,15 +17,15 @@ class EventBottomSheetViewModel : ViewModel() {
     private lateinit var eventRepo : EventRepository
     private lateinit var peopleRepo : PeopleRepository
 
-    private lateinit var postNewParticipantResult : MutableLiveData<Boolean>
+    private lateinit var postNewParticipantResult : MutableLiveData<String>
 
     fun loadRepositories(eventDAO: EventDAO, retrofit: Retrofit) {
         eventRepo = EventRepository(eventDAO, retrofit)
         peopleRepo = PeopleRepository(eventDAO, retrofit)
     }
 
-    fun getPostNewParticipantResult() : LiveData<Boolean> {
-        postNewParticipantResult = MutableLiveData(false)
+    fun getPostNewParticipantResult() : LiveData<String> {
+        postNewParticipantResult = MutableLiveData("")
         return postNewParticipantResult
     }
 

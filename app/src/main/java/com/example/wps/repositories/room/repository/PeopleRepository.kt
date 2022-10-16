@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 class PeopleRepository(private val eventDAO: EventDAO, private val retrofit: Retrofit) {
 
-    fun postNewParticipant(name: String, email: String, eventUid: String) : Boolean {
+    fun postNewParticipant(name: String, email: String, eventUid: String) : String {
         val peopleService = this.retrofit.create(PeopleService::class.java)
         val request = peopleService.postNewPeople(
             PeopleFactory.buildPostNewPeople(name, email, eventUid)
@@ -21,12 +21,12 @@ class PeopleRepository(private val eventDAO: EventDAO, private val retrofit: Ret
 
                 if (responseBody != null) {
                     insertNewParticipant(name, email, eventUid)
-                    return true
+                    return "ok"
                 }
             }
         }
 
-        return false
+        return "error"
     }
 
     private fun insertNewParticipant(name: String, email: String, eventUid: String) {

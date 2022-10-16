@@ -35,11 +35,11 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
         )
 
         viewModel.getPostNewParticipantResult().observe(this) {
-            if (it) {
+            if (it.equals("ok")) {
                 Toast.makeText(
                     context, "Participante inserido com sucesso!", Toast.LENGTH_SHORT
                 ).show()
-            } else {
+            } else if (it.equals("error")) {
                 Toast.makeText(
                     context,
                     "Não foi possível inserir o participante, tente novamente mais tarde.",
