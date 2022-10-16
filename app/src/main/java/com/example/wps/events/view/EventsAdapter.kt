@@ -10,6 +10,7 @@ import com.example.wps.R
 import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.EventLayoutBinding
 import com.example.wps.repositories.room.entities.Event
+import com.example.wps.util.DateUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
@@ -36,6 +37,7 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
             .placeholder(R.drawable.ic_round_image_108)
             .into(holder.image)
         holder.price.text = "R$ " + event.price
+        holder.date.text = DateUtil.parseLongToFormattedDateString(event.date)
 
         holder.eventLayout.setOnClickListener { showBottomSheetDialog(event) }
     }
@@ -60,6 +62,7 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
         val image = itemView.eventImage
         val distance = itemView.eventDistance
         val price = itemView.eventPrice
+        val date = itemView.eventDate
         val eventLayout = itemView.eventLayout
     }
 }
