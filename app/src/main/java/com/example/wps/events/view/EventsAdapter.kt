@@ -1,6 +1,10 @@
 package com.example.wps.events.view
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.app.ActionBar
 import android.content.Context
+import android.transition.Scene
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +16,7 @@ import com.example.wps.databinding.EventLayoutBinding
 import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.DateUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlin.math.ceil
 
 class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
@@ -42,13 +47,18 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
         holder.eventLayout.setOnClickListener { showBottomSheetDialog(event) }
 
         holder.seeMore.setOnClickListener {
-            //holder.description.maxLines += holder.description.maxLines
+            // Animation for See More click
+            val height = holder.description.measuredHeight
+            val finalHeight = ceil(height / 3.0) * holder.description.lineCount
 
-            //if (holder.description.lineCount != holder.description.maxLines) {
-              //  holder.seeMore.visibility = View.GONE
-            //}
+            holder.description.layoutParams.height = ActionBar.LayoutParams.WRAP_CONTENT
 
-            holder.description.maxLines = holder.description.lineHeight
+            val heightAnimator = ValueAnimator.ofInt(height, finalHeight.toInt())
+            heightAnimator.addUpdateListener {
+                holder.description.height = (it.animatedValue as Int)
+            }
+            heightAnimator.start()
+
             holder.seeMore.visibility = View.GONE
         }
     }

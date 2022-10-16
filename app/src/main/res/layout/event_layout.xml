@@ -67,11 +67,10 @@
             <TextView
                 android:id="@+id/event_description"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="89px"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:text="This description is just a example to build the screen aaaaaaaaaaaaaaaaaaaaaaaaaa gjr jg jregwjreb gjbwe br jgberjbgejbgj begjb wejkb erkbg kbkeb gkb krebgk wbekgbj  rbegkj bekjgb kjerb kjbeek bgkb erkjbkj b kjb"
-                android:maxLines="3"
                 android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/event_image"
                 app:layout_constraintTop_toBottomOf="@id/event_title"
