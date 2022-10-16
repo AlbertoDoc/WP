@@ -40,6 +40,17 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
         holder.date.text = DateUtil.parseLongToFormattedDateString(event.date)
 
         holder.eventLayout.setOnClickListener { showBottomSheetDialog(event) }
+
+        holder.seeMore.setOnClickListener {
+            //holder.description.maxLines += holder.description.maxLines
+
+            //if (holder.description.lineCount != holder.description.maxLines) {
+              //  holder.seeMore.visibility = View.GONE
+            //}
+
+            holder.description.maxLines = holder.description.lineHeight
+            holder.seeMore.visibility = View.GONE
+        }
     }
 
     override fun getItemCount(): Int {
@@ -59,6 +70,7 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
     class ViewHolder(itemView: EventLayoutBinding) : RecyclerView.ViewHolder(itemView.root) {
         val title = itemView.eventTitle
         val description = itemView.eventDescription
+        val seeMore = itemView.seeMore
         val image = itemView.eventImage
         val distance = itemView.eventDistance
         val price = itemView.eventPrice
