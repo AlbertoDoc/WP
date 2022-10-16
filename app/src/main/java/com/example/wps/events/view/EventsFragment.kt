@@ -18,7 +18,6 @@ class EventsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: EventsViewModel by activityViewModels()
-    private lateinit var locationManager : LocationManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,12 +43,6 @@ class EventsFragment : Fragment() {
                 adapter.setEvents(ArrayList(events))
             }
         }
-
-       //locationManager.requestLocationUpdates(
-         //  LocationManager.GPS_PROVIDER,  60000L, 0, LocationListener {
-
-          // }
-       //)
     }
 
     override fun onDestroyView() {

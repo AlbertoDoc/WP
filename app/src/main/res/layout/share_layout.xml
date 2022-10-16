@@ -51,7 +51,8 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/secondary_color"/>
 
         <TextView
             android:id="@+id/wpp_text_view"
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:text="@string/wpp"
             android:textSize="15sp"
+            android:textColor="@color/text"
             android:layout_marginLeft="15dp"
 
             app:layout_constraintLeft_toRightOf="@id/wpp_image_view"
@@ -99,7 +101,8 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/secondary_color"/>
 
         <TextView
             android:id="@+id/messenger_text_view"
@@ -107,6 +110,7 @@
             android:layout_height="wrap_content"
             android:text="@string/messenger"
             android:textSize="15sp"
+            android:textColor="@color/text"
             android:layout_marginLeft="15dp"
 
             app:layout_constraintLeft_toRightOf="@id/messenger_image_view"
@@ -147,7 +151,8 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/secondary_color"/>
 
         <TextView
             android:id="@+id/telegram_text_view"
@@ -155,6 +160,7 @@
             android:layout_height="wrap_content"
             android:text="@string/telegram"
             android:textSize="15sp"
+            android:textColor="@color/text"
             android:layout_marginLeft="15dp"
 
             app:layout_constraintLeft_toRightOf="@id/telegram_image_view"
@@ -194,7 +200,8 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/secondary_color"/>
 
         <TextView
             android:id="@+id/others_text_view"
@@ -202,6 +209,7 @@
             android:layout_height="wrap_content"
             android:text="@string/others"
             android:textSize="15sp"
+            android:textColor="@color/text"
             android:layout_marginLeft="15dp"
 
             app:layout_constraintLeft_toRightOf="@id/others_image_view"

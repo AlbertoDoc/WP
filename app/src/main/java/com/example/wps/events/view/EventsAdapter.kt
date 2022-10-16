@@ -86,7 +86,6 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
         val description = itemView.eventDescription
         val seeMore = itemView.seeMore
         val image = itemView.eventImage
-        val distance = itemView.eventDistance
         val price = itemView.eventPrice
         val date = itemView.eventDate
         val eventLayout = itemView.eventLayout
