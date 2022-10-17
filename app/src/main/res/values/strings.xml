@@ -1,12 +1,33 @@
 <resources>
     <string name="app_name">WPS</string>
-    <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="events_fragment_label">Next Events</string>
-    <string name="location_fragment_label">Location</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="events_fragment_label">Próximos Eventos</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- EventBottomSheetDialog -->
+    <string name="back_arrow">Voltar</string>
+    <string name="add_participant">Adicionar participante</string>
+    <string name="see_participants">Ver participantes</string>
+    <string name="location">Localização</string>
+    <string name="share">Compartilhar</string>
+
+    <!-- EventBottomSheetDialog/Add participant -->
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="name_field">Campo nome</string>
+    <string name="email_field">Campo email</string>
+    <string name="add">Adicionar</string>
+    <string name="add_button">Botão para adicionar participante</string>
+
+    <!-- Event Layout -->
+    <string name="event_image">Imagem do evento</string>
+
+    <!-- EventBottomSheetDialog/Share -->
+    <string name="wpp">Whatsapp</string>
+    <string name="wpp_image">Icone do WhatsApp</string>
+    <string name="messenger">Messenger</string>
+    <string name="messenger_image">Icone do Messenger</string>
+    <string name="telegram">Telegram</string>
+    <string name="telegram_image">Icone do Telegram</string>
+    <string name="others">Outros</string>
+    <string name="others_image">Icone de outros compartilhamentos</string>
 </resources>
