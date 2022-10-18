@@ -30,4 +30,7 @@
     <string name="telegram_image">Icone do Telegram</string>
     <string name="others">Outros</string>
     <string name="others_image">Icone de outros compartilhamentos</string>
+
+    <!-- EventBottomSheetDialog/Share -->
+    <string name="participant_name">Name example</string>
 </resources>

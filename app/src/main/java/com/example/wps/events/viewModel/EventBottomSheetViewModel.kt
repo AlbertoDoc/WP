@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wps.repositories.room.daos.EventDAO
+import com.example.wps.repositories.room.entities.Event
 import com.example.wps.repositories.room.repository.EventRepository
 import com.example.wps.repositories.room.repository.PeopleRepository
 import com.example.wps.util.ValidationUtil
@@ -49,5 +50,9 @@ class EventBottomSheetViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             postNewParticipantResult.postValue(peopleRepo.postNewParticipant(name, email, eventUid))
         }
+    }
+
+    fun getEventByIdLiveData(eventUid: String) : LiveData<Event> {
+        return eventRepo.getByIdLiveData(eventUid)
     }
 }

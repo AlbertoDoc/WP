@@ -36,7 +36,9 @@ class EventsFragment : Fragment() {
 
         val adapter = EventsAdapter()
         binding.eventRecyclerView.adapter = adapter
-        binding.eventRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        binding.eventRecyclerView.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        )
 
         viewModel.getEvents().observe(viewLifecycleOwner) { events ->
             run {

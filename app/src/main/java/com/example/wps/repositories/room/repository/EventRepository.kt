@@ -49,4 +49,8 @@ class EventRepository(private val eventDAO: EventDAO, private val retrofit: Retr
             }
         })
     }
+
+    fun getByIdLiveData(eventUid: String) : LiveData<Event> {
+        return eventDAO.getByIdLiveData(eventUid)
+    }
 }

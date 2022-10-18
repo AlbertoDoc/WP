@@ -13,17 +13,22 @@ class PeopleRepository(private val eventDAO: EventDAO, private val retrofit: Ret
             PeopleFactory.buildPostNewPeople(name, email, eventUid)
         )
 
-        val response = request.execute()
+        try {
+            val response = request.execute()
 
-        if (response.isSuccessful) {
-            if (response.code() == 200) {
-                val responseBody = response.body()
+            if (response.isSuccessful) {
+                if (response.code() == 201) {
+                    val responseBody = response.body()
 
-                if (responseBody != null) {
-                    insertNewParticipant(name, email, eventUid)
-                    return "ok"
+                    if (responseBody != null) {
+                        insertNewParticipant(name, email, eventUid)
+                        return "ok"
+                    }
                 }
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return "error"
         }
 
         return "error"

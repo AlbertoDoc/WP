@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wps.databinding.AddPersonLayoutBinding
 import com.example.wps.databinding.EventBottomSheetBinding
 import com.example.wps.databinding.ParticipantsLayoutBinding
@@ -18,8 +20,10 @@ import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.DateUtil
 import com.example.wps.util.ValidationUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
-class EventBottomSheetDialog(context: Context, theme: Int, private val event: Event)
+class EventBottomSheetDialog(context: Context, theme: Int, private var event: Event)
     : BottomSheetDialog(context, theme) {
 
     private lateinit var binding : EventBottomSheetBinding
@@ -105,6 +109,19 @@ class EventBottomSheetDialog(context: Context, theme: Int, private val event: Ev
 
         participantsBinding.backArrowImageView.setOnClickListener {
             setContentView(binding.root)
+        }
+
+        participantsBinding.participantsRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        val adapter = ParticipantsAdapter()
+        participantsBinding.participantsRecyclerView.adapter = adapter
+        participantsBinding.participantsRecyclerView.addItemDecoration(
+            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        )
+
+        viewModel.getEventByIdLiveData(event.uid).observe(this) {
+            event = it
+            adapter.setParticipants(ArrayList(event.peoples))
         }
     }
 

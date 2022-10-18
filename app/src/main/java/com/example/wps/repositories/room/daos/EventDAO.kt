@@ -23,4 +23,7 @@ interface EventDAO {
 
     @Query("SELECT * FROM Event WHERE uid == :uid")
     fun getById(uid: String): Event?
+
+    @Query("SELECT * FROM Event WHERE uid == :uid")
+    fun getByIdLiveData(uid: String): LiveData<Event>
 }
