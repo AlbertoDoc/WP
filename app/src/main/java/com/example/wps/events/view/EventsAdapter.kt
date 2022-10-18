@@ -38,7 +38,7 @@ class EventsAdapter : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
             .error(R.drawable.ic_round_image_108)
             .placeholder(R.drawable.ic_round_image_108)
             .into(holder.image)
-        holder.price.text = "R$ " + event.price
+        holder.price.text = context.getString(R.string.price_placeholder, event.price)
         holder.date.text = DateUtil.parseLongToFormattedDateString(event.date)
 
         holder.eventLayout.setOnClickListener { showBottomSheetDialog(event) }

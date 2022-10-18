@@ -31,6 +31,9 @@
     <string name="others">Outros</string>
     <string name="others_image">Icone de outros compartilhamentos</string>
 
-    <!-- EventBottomSheetDialog/Share -->
+    <!-- EventBottomSheetDialog/Participants -->
     <string name="participant_name">Name example</string>
+
+    <!-- EventsAdapter -->
+    <string name="price_placeholder">R$ %1$.2f</string>
 </resources>

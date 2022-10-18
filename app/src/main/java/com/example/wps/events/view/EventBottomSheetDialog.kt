@@ -20,8 +20,6 @@ import com.example.wps.repositories.room.entities.Event
 import com.example.wps.util.DateUtil
 import com.example.wps.util.ValidationUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 class EventBottomSheetDialog(context: Context, theme: Int, private var event: Event)
     : BottomSheetDialog(context, theme) {
